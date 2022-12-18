@@ -16,6 +16,7 @@
 | gTraceFname | char * | null | スッタク情報の出力ファイル名、最大長は「MAX_FNAME」 *2 |
 
 *1: 環境変数「TRACEMAX」で変更
+
 *2: 環境変数「TRACEFILE」で変更。未設定時はstderrへ出力
 
 ## 関数一覧
