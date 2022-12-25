@@ -30,6 +30,7 @@ C_FLGS		= -Wall -fPIC $(C_FLGS_R)
 #	環境変数
 export TRACEFILE=trace
 export TRACEMAX=20
+export LD_LIBRARY_PATH=./
 
 #	デフォルト生成規則
 #
