@@ -42,7 +42,7 @@ extern	int	TR_DIFFTIME(int *ret, struct timespec *ts_start, struct timespec *ts_
 struct Trace
 {
 	struct timespec ts;	/* { time_t tv_sec,  long tv_nsec; }	*/
-						/* sec from 1970/01/01, nano sec 		*/
+				/* sec from 1970/01/01, nano sec 	*/
 	 char	caller[MAX_BUF_CALLER];
 };
 
@@ -50,28 +50,28 @@ struct Trace
 /* ----------------------------------------------------------------------------
 	外部変数(Static)の定義
 ---------------------------------------------------------------------------- */
-static	char			_mytrace_id[] = "mtyime.h";
-static	struct	Trace	gTraceStack[MAX_TRACESTACK];	/* TRACE情報のSTACK		*/
-static	unsigned long	gCounter	= 0;				/* serial counter to TR_PUSH */
-static	int				gTraceStackMax	=	10;			/* 有効数 < MAX_TRACESTACK	*/
-static	int				gIring		= 0;				/* RING-COUNTER			*/
-static	struct timespec	gStartTs;						/* 経過時間の起点		*/
-static	FILE			*gTraceFP	= NULL;
-static	char			gTraceFname[MAX_FNAME];
+static	char		_mytrace_id[] = "mtyime.h";
+static	struct	Trace	gTraceStack[MAX_TRACESTACK];		/* TRACE情報のSTACK		*/
+static	unsigned long	gCounter	= 0;			/* serial counter to TR_PUSH	*/
+static	int		gTraceStackMax	= 10;			/* 有効数 < MAX_TRACESTACK		*/
+static	int		gIring		= 0;			/* RING-COUNTER			*/
+static	struct timespec	gStartTs;				/* 経過時間の起点		*/
+static	FILE		*gTraceFP	= NULL;
+static	char		gTraceFname[MAX_FNAME];
 
 #else /* ifdef MAIN */
 
 /* ----------------------------------------------------------------------------
 	外部変数の宣言
 ---------------------------------------------------------------------------- */
-extern	char			_mytrace_id[];
+extern	char		_mytrace_id[];
 extern	struct Trace	gTraceStack[];
 extern	unsigned long	gCounter;
-extern	int 			gTraceStackMax;
-extern	int				gIring;
+extern	int 		gTraceStackMax;
+extern	int		gIring;
 extern	struct timespec	gStartTs;
-extern	FILE			*gTraceFP;
-extern	char			gTraceFname[];
+extern	FILE		*gTraceFP;
+extern	char		gTraceFname[];
 
 #endif		/* ifdef	_MYTRACE_MAIN */
 #endif		/* ifndef	__INC_MYTRACE */
