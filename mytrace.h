@@ -25,7 +25,7 @@
 ---------------------------------------------------------------------------- */
 #define		MAX_TRACESTACK	1000
 #define		MAX_BUF_CALLER	32
-#define		MAX_FNAME		256
+#define		MAX_FNAME		128
 
 /* ----------------------------------------------------------------------------
 	関数プロトタイプ宣言
@@ -59,6 +59,7 @@ static	int				gIring			= 0;			/* RING-COUNTER				*/
 static	struct timespec	gStartTs;						/* 経過時間の起点				*/
 static	FILE			*gTraceFP	= NULL;
 static	char			gTraceFname[MAX_FNAME];
+static	int				gOpenCnt		= 0;			/* TRACE-FILEの連番(OPENされた回数)	*/
 
 #else /* ifdef MAIN */
 
@@ -73,6 +74,7 @@ extern	int				gIring;
 extern	struct timespec	gStartTs;
 extern	FILE			*gTraceFP;
 extern	char			gTraceFname[];
+extern	int				gOpenCnt;
 
 #endif		/* ifdef	_MYTRACE_MAIN */
 #endif		/* ifndef	__INC_MYTRACE */

@@ -49,5 +49,6 @@ int		main(int argc, char *argv[])
 {
 
 	mytrace_test();
+	mytrace_test();
 	return 0;
 }

@@ -93,7 +93,16 @@ int		TR_INIT()
 		gTraceFP = stderr;
 		strncpy(gTraceFname, "", MAX_FNAME);
 	} else {
-		strncpy(gTraceFname, envp, MAX_FNAME);
+#ifdef DBG
+		printf("TRACEFILE[%s,%d,%d]\n", envp,strlen(envp), MAX_FNAME);
+#endif
+		if(strlen(envp) >= (MAX_FNAME - 3)) {
+			fprintf(stderr, "TRACEFILE too long[%s]. less than %d\n", envp, (MAX_FNAME - 3));
+			exit(-1);
+		}
+		sprintf(gTraceFname, "%s%03d", envp, gOpenCnt);
+		gOpenCnt++;
+/* 		strncpy(gTraceFname, envp, MAX_FNAME);	*/
 		if( (gTraceFP = fopen(gTraceFname, "w")) == NULL){
 			fprintf(stderr, "Cannot open file[%s]\n", gTraceFname);
 			exit(-1);
